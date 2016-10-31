@@ -1,7 +1,7 @@
 Send pretty emails
 ==================
 
-`meteor add yogiben:pretty-email`
+`meteor add supaseca:pretty-email`
 
 ### What this package does ###
 1. Replaces boring default Meteor emails
@@ -19,36 +19,38 @@ Send pretty emails
 e.g.
 
 ```
-PrettyEmail.options =
-  from: 'support@mycompany.com'
-  logoUrl: 'http://mycompany.com/logo.png'
-  companyName: 'myCompany'
-  companyUrl: 'http://mycompany.com'
-  companyAddress: '123 Street, ZipCode, City, Country'
-  companyTelephone: '+1234567890'
-  companyEmail: 'support@mycompany.com'
+PrettyEmail.options = {
+  from: 'support@mycompany.com',
+  logoUrl: 'http://mycompany.com/logo.png',
+  companyName: 'myCompany',
+  companyUrl: 'http://mycompany.com',
+  companyAddress: '123 Street, ZipCode, City, Country',
+  companyTelephone: '+1234567890',
+  companyEmail: 'support@mycompany.com',
   siteName: 'mycompany'
+  };
 ```
 
 3) Send your emails
 
 ```
-Accounts.sendVerificationEmail Meteor.userId()
-Accounts.sendResetPasswordEmail Meteor.userId()
-Accounts.sendEnrollmentEmail Meteor.userId()
+Accounts.sendVerificationEmail(Meteor.userId());
+Accounts.sendResetPasswordEmail(Meteor.userId());
+Accounts.sendEnrollmentEmail(Meteor.userId());
 ```
 
 or using template
 
 ```
-PrettyEmail.send 'call-to-action',
-  to: 'myuser@myuser.com'
-  subject: 'You got new message'
-  heading: 'Your friend sent you a message'
-  message: 'Click the button below to read the message'
-  buttonText: 'Read message'
-  buttonUrl: 'http://mycompany.com/messages/2314'
+PrettyEmail.send('call-to-action', {
+  to: 'myuser@myuser.com',
+  subject: 'You got new message',
+  heading: 'Your friend sent you a message',
+  message: 'Click the button below to read the message',
+  buttonText: 'Read message',
+  buttonUrl: 'http://mycompany.com/messages/2314',
   messageAfterButton: "I come after the button!"
+  });
 ```
 
 ### Templates ###
@@ -58,7 +60,7 @@ PrettyEmail.send 'call-to-action',
 ![call-to-action](readme/call-to-action.png)
 
 ```
-PrettyEmail.send 'call-to-action', options
+PrettyEmail.send('call-to-action', options);
 ```
 
 **Options**
@@ -126,11 +128,12 @@ You can set your options globally with ``PrettyEmail.options`` object. ``PrettyE
 You can change the style of your emails by manipulating ``PrettyEmail.style`` object. See default values below:
 
 ```
-PrettyEmail.style =
-  fontFamily: 'Helvetica'
-  textColor: '#606060'
-  buttonColor: '#FFFFFF'
+PrettyEmail.style = {
+  fontFamily: 'Helvetica',
+  textColor: '#606060',
+  buttonColor: '#FFFFFF',
   buttonBgColor: '#007FFF'
+  }
 ```
 
 ### Customizing Accounts emails ###
@@ -139,8 +142,9 @@ You can change the text in the verification email etc.
 e.g.
 
 ```
-PrettyEmail.defaults.verifyEmail =
-  heading: 'Need to activate your account'
-  buttonText: 'Activate'
+PrettyEmail.defaults.verifyEmail = {
+  heading: 'Need to activate your account',
+  buttonText: 'Activate',
   ...
+  };
   ```
