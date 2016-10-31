@@ -8,7 +8,6 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('METEOR@1.0');
 
-  api.use('coffeescript');
   api.use('email');
   api.use('underscore');
   api.use([
@@ -19,7 +18,7 @@ Package.onUse(function(api) {
 
   api.addFiles(
     [
-      'lib/server/pretty-emails.coffee',
+      'lib/server/pretty-emails.js',
       'lib/templates/shared/footer.handlebars',
       'lib/templates/call-to-action.handlebars',
       'lib/templates/basic.handlebars'
