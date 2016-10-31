@@ -1,8 +1,8 @@
 Package.describe({
-  name: "yogiben:pretty-email",
+  name: "supaseca:pretty-email",
   summary: "Send pretty emails",
   version: "0.0.7",
-  git: "https://github.com/yogiben/meteor-pretty-email"
+  git: "https://github.com/projik/meteor-pretty-email"
 });
 
 Package.onUse(function(api) {
